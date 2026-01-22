@@ -1,18 +1,19 @@
-
 import { useState } from 'react'
-import Languages from "../script/languages"
-import AccordionList from "./AccordionList"
+import languages from "../script/languages.js"
+import Accordion from './Accordion.jsx'
 
-function Accordion() {
+function AccordionList() {
 
     return (
         <>
-            {Languages.map((language) => (
-                <AccordionList
+            {languages.map((language) => (
+                <Accordion key={language.id}
+                    title={language.title}
+                    description={language.description}
                 />
             ))}
         </>
     )
 }
 
-export default Accordion
+export default AccordionList
