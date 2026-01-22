@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div className='h-75 w-75 bg-primary'>
+      <div className='vh-100 w-60 py-3 d-flex flex-nowrap'>
         <AccordionList />
       </div>
     </>

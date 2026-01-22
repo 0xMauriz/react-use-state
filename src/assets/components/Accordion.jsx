@@ -1,24 +1,29 @@
-import { useState } from 'react'
 
 function Accordion(props) {
 
-    const { title, description } = props;
+
+
+
+    const { title, description, isOpen, onAccordionToggle } = props;
+
+    function handleOpen() {
+        setIsOpen((current) => !current)
+    }
 
     return (
         <>
-            <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                    <h2 className="accordion-header">
-                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            {title}
-                        </button>
-                    </h2>
-                    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div className="accordion-body">
-                            <p>{description}</p>
-                        </div>
-                    </div>
+            <div className="accordion rounded px-2">
+                <div className="accordion-title d-flex rounded">
+                    <button onClick={onAccordionToggle} className="w-100 bg-primary" type="button">
+                        <h2 className='fs-5'> {title}
+                        </h2>
+                    </button>
                 </div>
+            </div>
+            <div id="collapseOne" className="accordion-collapse collapse show" >
+                {isOpen && <div className="w-100 accordion-body">
+                    <p>{description}</p>
+                </div>}
             </div>
         </>
     )
